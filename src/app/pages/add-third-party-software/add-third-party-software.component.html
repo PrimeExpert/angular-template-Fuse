@@ -1,0 +1,112 @@
+<div class="add-third-party-container">
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Title -->
+    <div class="page-title">
+      <h1>Add Third-Party Software</h1>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-section">
+      <!-- First Row: Customer Name and Software Name -->
+      <div class="form-row">
+        <div class="form-field">
+          <label class="field-label">Customer Name *</label>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-select [(value)]="customerName">
+              <mat-option value="A.R.S. Inamdar Public Library">A.R.S. Inamdar Public Library</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Third-Party Software Name *</label>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-select [(value)]="softwareName">
+              <mat-option value="A.R.S. Inamdar Public Library">A.R.S. Inamdar Public Library</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Tags Input -->
+      <div class="form-field">
+        <label class="field-label">Tags</label>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput [(ngModel)]="tags" placeholder="">
+        </mat-form-field>
+      </div>
+
+      <!-- Software Type -->
+      <div class="software-type-field">
+        <label class="field-label">Third-Party Software Type *</label>
+        <mat-form-field appearance="outline" class="software-type-select">
+          <mat-select [(value)]="softwareType">
+            <mat-option value="Abby">Abby</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Toggle Options -->
+      <div class="toggle-options">
+        <div *ngFor="let toggle of toggleOptions" class="toggle-item">
+          <mat-slide-toggle 
+            [checked]="toggle.checked"
+            (change)="onToggleChange(toggle.id)"
+            color="primary">
+          </mat-slide-toggle>
+          <span class="toggle-label">{{ toggle.label }}</span>
+        </div>
+      </div>
+
+      <!-- Supported Languages Section -->
+      <div class="languages-section">
+        <h2 class="section-title">SUPPORTED LANGUAGES</h2>
+        
+        <div class="languages-grid">
+          <div *ngFor="let language of languages; let i = index" 
+               class="language-item"
+               [class.check-all-item]="i === 0">
+            <mat-checkbox 
+              [checked]="language.checked"
+              (change)="onLanguageChange(language.id)"
+              color="primary">
+              {{ language.name }}
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button 
+          mat-stroked-button 
+          class="cancel-btn"
+          (click)="onCancel()">
+          Cancel
+        </button>
+        <button 
+          mat-flat-button 
+          class="save-btn"
+          color="primary"
+          (click)="onSave()">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <span class="breadcrumb-item">Configuration</span>
+    <mat-icon class="breadcrumb-separator">chevron_right</mat-icon>
+    <span class="breadcrumb-item">Third-Party Software</span>
+    <mat-icon class="breadcrumb-separator">chevron_right</mat-icon>
+    <span class="breadcrumb-current">Add Third-Party Software</span>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <a href="#" class="eula-link">EULA</a>
+    <span class="copyright">ePRINTit © 2024</span>
+  </div>
+</div>
